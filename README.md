@@ -1,2 +1,6 @@
 # Domain-Specific-Semantic-Rich-Software-Knowledge-Graph-Construction-through-Human-LLM-Team-Working
-Data Link:[https://drive.google.com/file/d/1-6lxA0f9n8I-mlRxRpX9-PhYnd5CPcpz/view?usp=sharing](https://drive.google.com/file/d/1cmTkWeiTdbyFGOUU9o97Lcw1xl248CxJ/view?usp=sharing)
+在yaml文件中哪个字段要配置什么内容，APIkey
+用pip install -r requirements.txt
+python版本 3.12.4
+说明data数据
+code文件夹下的哪一个文件里面去右键运行python脚本
