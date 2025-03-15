@@ -1,0 +1,12 @@
+Meta Triple, Label1, Label2, Final
+"('class', 'efficiency_comparison', 'class')",T,T,T
+"('class', 'function_collaboration', 'class')",T,T,T
+"('class', 'type_conversion', 'class')",T,T,T
+"('method', 'behavior_difference', 'method')",T,T,T
+"('method', 'function_replace', 'method')",T,T,T
+"('method', 'function_opposite', 'method')",T,T,T
+"('method', 'logic_constraint', 'method')",T,T,T
+"('method', 'function_similarity', 'method')",T,T,T
+"('method', 'implementation_constraint', 'method')",T,T,T
+"('package, 'contain', 'class')",T,T,T
+"('Class', 'Has Method', 'Method')",T,T,T
