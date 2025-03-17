@@ -1,2 +1,50 @@
-markdown！！！以下内容一定要写成markdown格式 在yaml文件中哪个字段要配置什么内容，APIkey 用pip install -r requirements.txt python版本 3.12.4 
-说明data数据 code文件夹下的哪一个文件里面去右键运行python脚本 1
+# Domain-Specific Semantic-Rich Software Knowledge Graph Construction through Human-LLM Team Working
+
+## Project Overview
+This project focuses on constructing a domain-specific semantic-rich software knowledge graph through collaborative efforts between humans and Large Language Models (LLMs). The project involves processing data, generating semantic representations, and building a knowledge graph that can be utilized for various software engineering tasks.
+
+## Prerequisites
+
+### Python Version
+Ensure you have Python 3.12.2 installed on your system. You can check your Python version by running:
+```bash
+python --version
+Installation
+To install the required dependencies, run the following command:
+
+bash
+pip install -r requirements.txt
+Configuration
+YAML File Configuration
+You need to configure the config.yaml file with the following fields:
+
+OpenAI_API_Base: ""  # Base URL for the OpenAI API
+API_key_list:       # List of API keys for authentication
+  - 
+chunk_size:         # Size of data chunks for processing
+OpenAI_API_Base: Specify the base URL for the OpenAI API.
+
+API_key_list: Provide a list of API keys that will be used for authentication.
+
+chunk_size: Define the size of data chunks that will be processed at a time.
+
+Running the Code
+Execution
+To run the project, navigate to the Code directory and execute the main.py script located in the Code/new_code/ folder. You can do this by right-clicking on the main.py file and selecting "Run" or by using the following command in your terminal:
+
+python Code/new_code/main.py
+Data and Code Structure
+Data: The data required for the project should be placed in the data directory.
+
+Code: The main script to run is located in Code/new_code/main.py.
+
+Additional Notes
+Ensure that the config.yaml file is correctly configured before running the script.
+
+The project relies on the OpenAI API, so make sure you have valid API keys and the correct API base URL.
+
+Support
+For any issues or questions, please refer to the project documentation or contact the maintainers.
+
+
+This README file provides all the necessary instructions for setting up and running the project. You can directly copy and paste this content into your `README.md` file on GitHub.
