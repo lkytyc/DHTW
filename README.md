@@ -21,10 +21,12 @@ YAML File Configuration
 You need to configure the config.yaml file with the following fields:
 
 yaml
+```
 OpenAI_API_Base: ""  # Base URL for the OpenAI API
 API_key_list:       # List of API keys for authentication
   - 
 chunk_size:         # Size of data chunks for processing
+```
 OpenAI_API_Base: Specify the base URL for the OpenAI API.
 
 API_key_list: Provide a list of API keys that will be used for authentication.
