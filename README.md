@@ -7,13 +7,15 @@ This project focuses on constructing a domain-specific semantic-rich software kn
 
 ### Python Version
 Ensure you have Python 3.12.2 installed on your system. You can check your Python version by running:
-```bash
+```
 python --version
+```
 Installation
 To install the required dependencies, run the following command:
 
-bash
+```
 pip install -r requirements.txt
+```
 Configuration
 YAML File Configuration
 You need to configure the config.yaml file with the following fields:
@@ -33,8 +35,9 @@ Running the Code
 Execution
 To run the project, navigate to the Code directory and execute the main.py script located in the Code/new_code/ folder. You can do this by right-clicking on the main.py file and selecting "Run" or by using the following command in your terminal:
 
-bash
+```
 python Code/new_code/main.py
+```
 Data and Code Structure
 Data: The data required for the project should be placed in the data directory.
 
