@@ -18,6 +18,7 @@ Configuration
 YAML File Configuration
 You need to configure the config.yaml file with the following fields:
 
+yaml
 OpenAI_API_Base: ""  # Base URL for the OpenAI API
 API_key_list:       # List of API keys for authentication
   - 
@@ -32,6 +33,7 @@ Running the Code
 Execution
 To run the project, navigate to the Code directory and execute the main.py script located in the Code/new_code/ folder. You can do this by right-clicking on the main.py file and selecting "Run" or by using the following command in your terminal:
 
+bash
 python Code/new_code/main.py
 Data and Code Structure
 Data: The data required for the project should be placed in the data directory.
@@ -42,9 +44,3 @@ Additional Notes
 Ensure that the config.yaml file is correctly configured before running the script.
 
 The project relies on the OpenAI API, so make sure you have valid API keys and the correct API base URL.
-
-Support
-For any issues or questions, please refer to the project documentation or contact the maintainers.
-
-
-This README file provides all the necessary instructions for setting up and running the project. You can directly copy and paste this content into your `README.md` file on GitHub.
