@@ -102,7 +102,7 @@ class KGExploration:
     def entity_extraction(self, chunk, prompt_content, suggestions, api_key, index):
 
         if isinstance(suggestions, list):
-            suggestions_str = "\n".join(suggestions) if suggestions else "无建议"
+            suggestions_str = "\n".join(suggestions) if suggestions else "No Suggestions"
         else:
             suggestions_str = str(suggestions)
         if isinstance(chunk, list):
@@ -156,7 +156,7 @@ class KGExploration:
         string_pairs = "; ".join(f"({item[0]}, {item[1]})" for item in formatted_pairs)
 
 
-        suggestions_str = "\n".join(suggestions) if suggestions else "无建议"
+        suggestions_str = "\n".join(suggestions) if suggestions else "No Suggestions"
         if isinstance(chunk, list):
             chunk = "\n".join(chunk)
 
@@ -407,7 +407,6 @@ class KGExploration:
 
         if os.path.exists(self.relation_type_batch_path):
             try:
-                # 尝试读取 CSV 文件
                 df = pd.read_csv(self.relation_type_batch_path, header=None)
 
                 if df.empty:
