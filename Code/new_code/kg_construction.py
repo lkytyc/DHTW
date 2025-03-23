@@ -14,7 +14,7 @@ class KGConstruction:
         # API_key
         self.key_list = constructor_config["API_key_list"]
         # Model name
-        self.model_name = "llama-3.1-70b"
+        self.model_name = "gpt-4o-2024-08-06"
         # all_file_path
         self.all_file_path = constructor_config["all_file_path"]
         # prompt_path
