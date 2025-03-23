@@ -1,12 +1,8 @@
 OpenAI_API_Base: ""
 API_key_list:
   -
-API_key: ""
 chunk_size: 50
 model_name_emb: "text-embedding-3-small"
-kg_path: "../output/community/output.json"
-triple_source_path: "../output/community/output.csv"
-output_dir: "../output/community"
 seed_file_path: "../seed_data/"
 all_file_path: "../all_data/"
 ke_entity_extratction_prompt: "../prompt/kg_exploration/entity_extraction"
