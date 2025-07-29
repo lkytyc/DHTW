@@ -1,4 +1,4 @@
-# Domain-Specific Semantic-Rich Software Knowledge Graph Construction through Human-LLM Team Working
+# Domain-Specific Semantic-Rich Knowledge Graph Construction through Human-LLM Team Working
 
 ## Project Overview
 This project focuses on constructing a domain-specific semantic-rich software knowledge graph through collaborative efforts between humans and Large Language Models (LLMs). The project involves processing data, generating semantic representations, and building a knowledge graph that can be utilized for various software engineering tasks.
