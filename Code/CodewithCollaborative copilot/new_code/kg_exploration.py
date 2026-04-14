@@ -10,6 +10,7 @@ import ast
 from collections import Counter
 from tqdm import tqdm
 import time
+from collaborative_copilot_integration import CollaborativeCopilotIntegration
 
 
 class KGExploration:
@@ -39,6 +40,18 @@ class KGExploration:
         self.save_kg_schema_path = explorer_config["save_kg_schema_path"]
         self.suggestion_file_path = explorer_config["save_suggestions_path"]
         self.suggestion_prompt = explorer_config["Suggestion_prompt"]
+        self.collaborative_copilot_prompt = explorer_config.get(
+            "Collaborative_Copilot_prompt",
+            "../prompt/kg_exploration/CollaborativeCopilot"
+        )
+        self.collaborative_copilot_table_path = explorer_config.get(
+            "save_collaborative_copilot_table_path",
+            "../output/kg_exploration/copilot_suggestions.csv"
+        )
+        self.collaborative_copilot_report_path = explorer_config.get(
+            "save_collaborative_copilot_report_path",
+            "../output/kg_exploration/copilot_summary.txt"
+        )
         
         # Token and time statistics
         self.total_prompt_tokens = 0
@@ -847,7 +860,7 @@ class KGExploration:
         final_triples = set()
 
         print("\n" + "="*80)
-        print("Generating KG Schema")
+        print("[Generate KG Schema]")
         print("="*80)
 
         with open(self.entity_label_path, newline='', encoding='utf-8') as csvfile:
@@ -923,11 +936,11 @@ class KGExploration:
                         matched_count += 1
         
         print("\nStatistics:")
-        print(f"  - Total Instances: {total_instances}")
-        print(f"  - Successfully Matched: {matched_count}")
-        print(f"  - Skipped (Missing Label): {skipped_no_label}")
-        print(f"  - Skipped (Missing Type): {skipped_no_type}")
-        print(f"  - Generated Triples: {len(final_triples)}")
+        print(f"  - Total instances: {total_instances}")
+        print(f"  - Successfully matched: {matched_count}")
+        print(f"  - Skipped (missing label): {skipped_no_label}")
+        print(f"  - Skipped (missing type): {skipped_no_type}")
+        print(f"  - Generated triple count: {len(final_triples)}")
         print("="*80 + "\n")
         
         return list(final_triples)
@@ -937,7 +950,7 @@ class KGExploration:
         existing_triples = set()
 
         print("\n" + "="*80)
-        print("Saving KG Schema")
+        print("[Save KG Schema]")
         print("="*80)
 
         entity_type_map = {}
@@ -1103,6 +1116,35 @@ class KGExploration:
 
     import csv
 
+    def run_collaborative_copilot(self):
+        try:
+            prompt_template = self.read_file(self.collaborative_copilot_prompt)
+            if not prompt_template:
+                print("Collaborative copilot prompt not found. Skip copilot generation.")
+                return
+
+            copilot = CollaborativeCopilotIntegration(
+                entity_type_path=self.entity_type_path,
+                relation_type_path=self.relation_type_batch_path,
+                schema_path=self.save_kg_schema_path,
+                suggestions_path=self.suggestion_file_path,
+                table_output_path=self.collaborative_copilot_table_path,
+                report_output_path=self.collaborative_copilot_report_path,
+            )
+
+            prompt_content = copilot.build_prompt_content(prompt_template)
+            llm_input = self.load_message(prompt_content)
+            result = self.call_llm(llm_input, self.key_list[0])
+
+            if result:
+                copilot.save_outputs(result)
+                print("Collaborative copilot outputs saved to", self.collaborative_copilot_table_path)
+                print("Collaborative copilot report saved to", self.collaborative_copilot_report_path)
+            else:
+                print("Collaborative copilot returned empty output.")
+        except Exception as e:
+            print("Collaborative copilot error:", str(e))
+
     def pause_and_process_csv(self):
         try:
 
@@ -1110,14 +1152,21 @@ class KGExploration:
             relation_types_old = self.read_file(self.relation_type_batch_path)
 
             print("\n" + "="*80)
-            print("Human Feedback Stage")
+            print("[Human Feedback Stage]")
             print("="*80)
             print("Please modify the following files:")
-            print(f"  1. Entity Types: {self.entity_type_path}")
-            print(f"  2. Relation Types: {self.relation_type_batch_path}")
+            print(f"  1. Entity types: {self.entity_type_path}")
+            print(f"  2. Relation types: {self.relation_type_batch_path}")
             print("="*80)
 
-            # Start measuring human feedback time from the first input prompt.
+            print("Running collaborative copilot before manual review...")
+            self.run_collaborative_copilot()
+            print("Please review the generated copilot summary and suggestion table before editing the files.")
+            print(f"  - Summary: {self.collaborative_copilot_report_path}")
+            print(f"  - Suggestion table: {self.collaborative_copilot_table_path}")
+            print("="*80)
+
+            # Start measuring human feedback time from the first input.
             human_feedback_start_time = time.time()
 
             input("Please modify the file, and press the Enter key to continue after completing the operation...")
@@ -1128,10 +1177,10 @@ class KGExploration:
             # Stop measuring human feedback time.
             human_feedback_end_time = time.time()
             human_feedback_duration = human_feedback_end_time - human_feedback_start_time
-            self.human_feedback_time += human_feedback_duration  # Accumulate into the total time.
+            self.human_feedback_time += human_feedback_duration  # Add to the total time.
 
-            print(f"\nHuman Feedback Time: {human_feedback_duration:.2f}s ({human_feedback_duration/60:.2f} min)")
-            print(f"Cumulative Human Feedback Time: {self.human_feedback_time:.2f}s ({self.human_feedback_time/60:.2f} min)")
+            print(f"\nHuman feedback time: {human_feedback_duration:.2f}s ({human_feedback_duration/60:.2f} min)")
+            print(f"Accumulated human feedback time: {self.human_feedback_time:.2f}s ({self.human_feedback_time/60:.2f} min)")
             print("="*80 + "\n")
 
             entity_types_new = self.read_file(self.entity_type_path)

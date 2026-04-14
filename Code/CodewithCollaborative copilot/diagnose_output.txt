@@ -1,0 +1,164 @@
+================================================================================
+Schema 诊断报告
+================================================================================
+
+1. 实体标签数量: 109
+2. 实体类型映射数量: 27
+
+3. 关系类型总数: 15
+
+关系类型 1: location
+  实例数量: 23
+  实例 1: runway, located at, Alpena County Regional Airport
+    [X] 实体2 'Alpena County Regional Airport' 没有标签
+  实例 2: Ardmore, located in, New Zealand
+    [X] 标签 'geographical location' 没有类型映射
+  实例 3: Airport, located in, New Zealand
+    [X] 标签 'country' 没有类型映射
+  实例 4: runway, located at, Al Asad Airbase
+    [X] 实体2 'Al Asad Airbase' 没有标签
+  实例 5: Paracuellos, located in, Spain
+    [X] 标签 'geographical location' 没有类型映射
+  ... 还有 18 个实例未显示
+
+关系类型 2: containment
+  实例数量: 31
+  实例 1: Appleton, part of, International
+    [X] 标签 'geographical location' 没有类型映射
+  实例 2: Appleton, part of, Airport
+    [X] 标签 'geographical location' 没有类型映射
+  实例 3: International, part of, Airport
+    [X] 标签 'none' 没有类型映射
+  实例 4: Ardmore, part of, New Zealand
+    [X] 标签 'geographical location' 没有类型映射
+  实例 5: Airport, part of, New Zealand
+    [X] 标签 'country' 没有类型映射
+  ... 还有 26 个实例未显示
+
+关系类型 3: identification
+  实例数量: 13
+  实例 1: runway, named, 07/25
+    [X] 标签 'none' 没有类型映射
+  实例 2: runway, named, 03R/21L
+    [X] 标签 'designation' 没有类型映射
+  实例 3: runway, named, 16/34
+    [OK] runway -> infrastructure -> infrastructure
+    [OK] 16/34 -> identifier -> identifier
+  实例 4: Appleton, location identifier, ATW
+    [X] 标签 'geographical location' 没有类型映射
+  实例 5: Airport, identifier, ATW
+    [X] 标签 'airport code' 没有类型映射
+  ... 还有 8 个实例未显示
+
+关系类型 4: leadership
+  实例数量: 8
+  实例 1: Pakistan, leader, Jamali
+    [X] 标签 'geographical location' 没有类型映射
+  实例 2: Alcobendas, leader party, People's Party (Spain)
+    [X] 实体2 'People's Party (Spain)' 没有标签
+  实例 3: Athens, mayor, Giorgos Kaminis
+    [X] 实体2 'Giorgos Kaminis' 没有标签
+  实例 4: Greece, leader, Prokopis Pavlopoulos
+    [X] 实体2 'Prokopis Pavlopoulos' 没有标签
+  实例 5: South Jersey Transportation Authority, leader, Stephen Dilts
+    [X] 实体1 'South Jersey Transportation Authority' 没有标签
+  ... 还有 3 个实例未显示
+
+关系类型 5: jurisdiction
+  实例数量: 2
+  实例 1: Government, jurisdiction in, Flanders
+    [X] 标签 'geographical location' 没有类型映射
+  实例 2: Flemish Government, jurisdiction in, Flemish Region
+    [X] 实体1 'Flemish Government' 没有标签
+
+关系类型 6: operation
+  实例数量: 2
+  实例 1: Air_Force, operates, F-16
+    [X] 标签 'military organization' 没有类型映射
+  实例 2: General_Dynamics, manufactures, F-16
+    [X] 标签 'aircraft model' 没有类型映射
+
+关系类型 7: equivalence
+  实例数量: 2
+  实例 1: F-16, also known as, Fighting_Falcon
+    [X] 标签 'aircraft model' 没有类型映射
+  实例 2: 18L/36R, also known as, Aalsmeerbaan
+    [X] 标签 'runway identifier' 没有类型映射
+
+关系类型 8: capital
+  实例数量: 1
+  实例 1: Belgium, capital, Brussels
+    [X] 标签 'country' 没有类型映射
+
+关系类型 9: language
+  实例数量: 1
+  实例 1: Greek, spoken in, Greece
+    [X] 标签 'geographical location' 没有类型映射
+
+关系类型 10: classification
+  实例数量: 1
+  实例 1: Greek, is a, language
+    [X] 标签 'none' 没有类型映射
+
+关系类型 11: ownership
+  实例数量: 2
+  实例 1: Antwerp, owner of, Airport
+    [X] 标签 'geographical location' 没有类型映射
+  实例 2: Airport, owned by, Flemish Region
+    [X] 实体2 'Flemish Region' 没有标签
+
+关系类型 12: measurement
+  实例数量: 4
+  实例 1: runway, has length, length
+    [OK] runway -> infrastructure -> infrastructure
+    [OK] length -> measurement -> measurement
+  实例 2: runway, has length, 3090 meters
+    [X] 实体2 '3090 meters' 没有标签
+  实例 3: runway, has length, 4349
+    [X] 实体2 '4349' 没有标签
+  实例 4: runway, measured in, feet
+    [X] 标签 'unit of measurement' 没有类型映射
+
+关系类型 13: elevation
+  实例数量: 1
+  实例 1: Airport, elevation above sea level, metres
+    [X] 标签 'unit of measurement' 没有类型映射
+
+关系类型 14: description
+  实例数量: 1
+  实例 1: International, describes, airport
+    [X] 标签 'none' 没有类型映射
+
+关系类型 15: service
+  实例数量: 1
+  实例 1: Airport, serves, Alderney
+    [X] 标签 'geographical location' 没有类型映射
+
+================================================================================
+统计总结:
+================================================================================
+总实例数: 93
+有效实例数: 2
+跳过实例数: 36
+有效率: 2.15%
+
+跳过原因统计:
+  标签无类型映射(geographical location): 11 次
+  标签无类型映射(none): 4 次
+  标签无类型映射(country): 3 次
+  标签无类型映射(aircraft model): 2 次
+  标签无类型映射(unit of measurement): 2 次
+  实体2无标签(Alpena County Regional Airport): 1 次
+  实体2无标签(Al Asad Airbase): 1 次
+  标签无类型映射(designation): 1 次
+  标签无类型映射(airport code): 1 次
+  实体2无标签(People's Party (Spain)): 1 次
+  实体2无标签(Giorgos Kaminis): 1 次
+  实体2无标签(Prokopis Pavlopoulos): 1 次
+  实体1无标签(South Jersey Transportation Authority): 1 次
+  实体1无标签(Flemish Government): 1 次
+  标签无类型映射(military organization): 1 次
+  标签无类型映射(runway identifier): 1 次
+  实体2无标签(Flemish Region): 1 次
+  实体2无标签(3090 meters): 1 次
+  实体2无标签(4349): 1 次

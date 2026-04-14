@@ -40,6 +40,7 @@ ke_relation_type_fusion_prompt: "../prompt/kg_exploration/relation_type_fusion"
 kc_entity_extratction_prompt: "../prompt/kg_construction/entity_extraction"
 kc_relation_extratction_prompt: "../prompt/kg_construction/relation_extraction"
 Suggestion_prompt: "../prompt/kg_exploration/ActionInsight"
+Collaborative_Copilot_prompt: "../prompt/kg_exploration/CollaborativeCopilot"
 
 # Output paths
 save_ke_entity_path: "../output/kg_exploration/entity.csv"
@@ -52,3 +53,5 @@ save_kc_entity_path: "../output/kg_construction/entity.csv"
 save_kc_relation_path: "../output/kg_construction/relation.csv"
 save_kr_schema_path: "../output/kg_refinement/schema.csv"
 save_kg_schema_path: "../output/kg_exploration/kg_schema.csv"
+save_collaborative_copilot_table_path: "../output/kg_exploration/copilot_suggestions.csv"
+save_collaborative_copilot_report_path: "../output/kg_exploration/copilot_summary.txt"

@@ -104,7 +104,7 @@ def print_total_statistics(ke_stats=None, kc_stats=None):
 
     print("="*80 + "\n")
 
-    # Save overall statistics to a file.
+    # Save overall statistics to a file
     save_total_statistics_to_file(ke_stats, kc_stats)
 
 def save_total_statistics_to_file(ke_stats=None, kc_stats=None):
@@ -277,13 +277,13 @@ def kg_exploration(universal_config):
         kgexplorer.save_kg_schema(schema)
         kgexplorer.pause_and_process_csv()
     
-    # Print KGExploration statistics.
+    # Print KGExploration statistics
     kgexplorer.print_statistics()
 
-    # Save KGExploration statistics to a file.
+    # Save KGExploration statistics to a file
     kgexplorer.save_statistics_to_file()
 
-    # Return statistics.
+    # Return statistics
     return {
         'total_prompt_tokens': kgexplorer.total_prompt_tokens,
         'total_completion_tokens': kgexplorer.total_completion_tokens,
@@ -314,13 +314,13 @@ def kg_construction(universal_config):
             entity_pairs.append(row[2])
     kgconstructor.process_relation_extraction(text_list, relation_type_str, entity_list, entity_pairs, kgconstructor.relation_file_path)
 
-    # Print KGConstruction statistics.
+    # Print KGConstruction statistics
     kgconstructor.print_statistics()
 
-    # Save KGConstruction statistics to a file.
+    # Save KGConstruction statistics to a file
     kgconstructor.save_statistics_to_file()
 
-    # Return statistics.
+    # Return statistics
     return {
         'total_prompt_tokens': kgconstructor.total_prompt_tokens,
         'total_completion_tokens': kgconstructor.total_completion_tokens,
@@ -334,17 +334,17 @@ def main():
         universal_config = yaml.safe_load(config_file)
     universal_config = resolve_runtime_config(universal_config)
     
-    # Run KGExploration and collect statistics.
+    # Run KGExploration and collect statistics
     ke_stats = None
 
     # ke_stats = kg_exploration(universal_config)
 
-    # Run KGConstruction and collect statistics if needed.
+    # Run KGConstruction and collect statistics (if needed)
 
     kc_stats = kg_construction(universal_config)
 
 
-    # Print the overall statistics report.
+    # Print the overall statistics report
     print_total_statistics(ke_stats, kc_stats)
 
 if __name__ == "__main__":
