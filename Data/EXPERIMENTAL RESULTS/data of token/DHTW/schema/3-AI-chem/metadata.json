@@ -1,0 +1,9 @@
+{
+  "level": 3,
+  "run_id": "20260208_144233_L3",
+  "batches": 1,
+  "llm": {
+    "base_url": "https://api.openai.com",
+    "model": "gpt-4o"
+  }
+}

@@ -1,0 +1,78 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex: <http://example.org/biomed-interaction-schema#> .
+
+<http://example.org/biomed-interaction-schema#> rdf:type owl:Ontology .
+
+# Classes
+ex:chemical rdf:type owl:Class .
+ex:gene_or_protein rdf:type owl:Class .
+
+# Object Properties
+ex:agonist rdf:type owl:ObjectProperty ;
+    rdfs:domain ex:chemical ;
+    rdfs:range ex:gene_or_protein .
+
+ex:antagonist rdf:type owl:ObjectProperty ;
+    rdfs:domain ex:chemical ;
+    rdfs:range ex:gene_or_protein .
+
+ex:activator rdf:type owl:ObjectProperty ;
+    rdfs:domain ex:chemical ;
+    rdfs:range ex:gene_or_protein .
+
+ex:inhibitor rdf:type owl:ObjectProperty ;
+    rdfs:domain ex:chemical ;
+    rdfs:range ex:gene_or_protein .
+
+ex:direct_regulator rdf:type owl:ObjectProperty ;
+    rdfs:domain ex:chemical ;
+    rdfs:range ex:gene_or_protein .
+
+ex:indirect_upregulator rdf:type owl:ObjectProperty ;
+    rdfs:domain ex:chemical ;
+    rdfs:range ex:gene_or_protein .
+
+ex:indirect_downregulator rdf:type owl:ObjectProperty ;
+    rdfs:domain ex:chemical ;
+    rdfs:range ex:gene_or_protein .
+
+ex:substrate rdf:type owl:ObjectProperty ;
+    rdfs:domain ex:gene_or_protein ;
+    rdfs:range ex:chemical .
+
+ex:product_of rdf:type owl:ObjectProperty ;
+    rdfs:domain ex:gene_or_protein ;
+    rdfs:range ex:chemical .
+
+ex:agonist_and_activator rdf:type owl:ObjectProperty ;
+    rdfs:domain ex:chemical ;
+    rdfs:range ex:gene_or_protein .
+
+ex:agonist_and_inhibitor rdf:type owl:ObjectProperty ;
+    rdfs:domain ex:chemical ;
+    rdfs:range ex:gene_or_protein .
+
+# Data Properties
+ex:source_document_id rdf:type owl:DatatypeProperty ;
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:string .
+
+ex:sentence_span rdf:type owl:DatatypeProperty ;
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:string .
+
+# CQ Coverage
+# CQ1: Main entity types are chemical and gene or protein.
+# CQ2: Type-to-type relations include agonist, antagonist, activator, inhibitor, direct regulator, indirect upregulator, indirect downregulator, substrate, product of, agonist and activator, agonist and inhibitor.
+# CQ3: Relations are directional, with canonical direction from chemical to gene or protein, except substrate and product of, which are from gene or protein to chemical.
+# CQ4: Interaction categories are kept separate as distinct properties.
+# CQ5: No contextual entities like disease, species, cell line, tissue, pathway/process are included.
+# CQ6: No underspecified or ambiguous relations are included.
+# CQ7: Subclass structure is not explicitly supported; classes are chemical and gene or protein.
+
+# SWRL-like rules (as comments)
+# Rule: If a chemical is an agonist of a gene or protein, it may also be an activator.
+# Rule: If a chemical is an antagonist of a gene or protein, it may also be an inhibitor.

@@ -1,0 +1,29 @@
+{
+  "total_calls": 10696,
+  "total_prompt_tokens": 8343095,
+  "total_completion_tokens": 807875,
+  "total_tokens": 9150970,
+  "calls_by_agent": {
+    "gpt-4o-2024-08-06": {
+      "calls": 10696,
+      "prompt_tokens": 8343095,
+      "completion_tokens": 807875,
+      "total_tokens": 9150970
+    }
+  },
+  "calls_by_method": {
+    "NERLLMPromptExtractor": {
+      "calls": 9946,
+      "prompt_tokens": 6166485,
+      "completion_tokens": 585682,
+      "total_tokens": 6752167
+    },
+    "RelationLLMTripleExtractor": {
+      "calls": 750,
+      "prompt_tokens": 2176610,
+      "completion_tokens": 222193,
+      "total_tokens": 2398803
+    }
+  },
+  "timestamp": "2026-02-27T23:24:18.221205"
+}

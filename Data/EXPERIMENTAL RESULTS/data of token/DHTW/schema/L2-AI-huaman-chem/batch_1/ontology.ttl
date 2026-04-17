@@ -1,0 +1,41 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex: <http://example.org/biomed-interaction-schema#> .
+
+<http://example.org/biomed-interaction-schema> rdf:type owl:Ontology .
+
+# Classes
+ex:Chemical rdf:type owl:Class .
+ex:Biomolecule rdf:type owl:Class .
+
+# Object Properties
+ex:enhanceactivity rdf:type owl:ObjectProperty ;
+    rdfs:domain ex:Chemical ;
+    rdfs:range ex:Biomolecule .
+
+ex:inhibitexpression rdf:type owl:ObjectProperty ;
+    rdfs:domain ex:Chemical ;
+    rdfs:range ex:Biomolecule .
+
+ex:bindto rdf:type owl:ObjectProperty ;
+    rdfs:domain ex:Biomolecule ;
+    rdfs:range ex:Chemical .
+
+# Data Properties
+# (No data properties specified in the current scope)
+
+# SWRL-like rules (as comments)
+# Rule: If a Chemical enhances the activity of a Biomolecule, then it is involved in a positive interaction.
+# Rule: If a Chemical inhibits the expression of a Biomolecule, then it is involved in a negative interaction.
+# Rule: If a Biomolecule binds to a Chemical, then it is involved in a binding interaction.
+
+# CQ Coverage
+# CQ1: Core entity types - Covered by ex:Chemical and ex:Biomolecule classes.
+# CQ2: Type-to-type relations - Covered by ex:enhanceactivity, ex:inhibitexpression, and ex:bindto properties.
+# CQ3: Directionality - Ensured by rdfs:domain and rdfs:range in properties.
+# CQ4: Interaction categories - Represented by distinct properties.
+# CQ5: Contextual entities - Not included as they are out of scope.
+# CQ6: Relation candidates - Only well-defined relations included.
+# CQ7: Subclass structure - Not included as it is not supported by annotations.

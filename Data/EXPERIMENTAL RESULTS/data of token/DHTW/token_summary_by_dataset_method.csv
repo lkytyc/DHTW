@@ -1,0 +1,15 @@
+source_dir,method,dataset,variant,calls,prompt_tokens,completion_tokens,total_tokens,file
+DHTW,DHTW,FinReflextKG,,926,1859609,225480,2085089,token\DHTW\FinReflextKG.txt
+docs,Docs2kg_back,FinReflextKG,FinReflextKG_back,6424,5839029,652701,6491730,token\docs\FinReflextKG_back.json
+docs,Docs2kg_our,FinReflextKG,FinReflextKG,6408,5653262,646917,6300179,token\docs\FinReflextKG.json
+EDC,EDC,FinReflextKG,,954,596087,269808,865895,token\EDC\FinReflextKG.txt
+DHTW,DHTW,chemport,,4416,5563184,529135,6092319,token\DHTW\chemport.txt
+docs,Docs2kg_back,chemport,chem_back,14578,11314487,1053089,12367576,token\docs\chem_back.json
+docs,Docs2kg_our,chemport,chemport,14587,11294775,1064253,12359028,token\docs\chemport.json
+EDC,EDC,chemport,,2042,2142252,740236,2882488,token\EDC\chemport.txt
+DHTW,DHTW,drugport,,2944,3526300,346198,3872498,token\DHTW\drugport.txt
+DHTW,DHTW_chem_drug,drugport,chem_drug,2954,3654488,404564,4059052,token\DHTW\chem_drug.txt
+DHTW,DHTW_drug_chem,drugport,drug_chem,3996,4750678,469368,5220046,token\DHTW\drug_chem.txt
+docs,Docs2kg_back,drugport,drug_back,10696,8343095,807875,9150970,token\docs\drug_back.json
+docs,Docs2kg_our,drugport,drugport,11363,9070238,844884,9915122,token\docs\drugport.json
+EDC,EDC,drugport,,1502,1060240,594909,1655149,token\EDC\drugport.txt

@@ -1,0 +1,33 @@
+============================================================
+LLM Token Usage Report
+============================================================
+Total LLM Calls: 954
+Total Prompt Tokens: 596087
+Total Completion Tokens: 269808
+Total Tokens: 865895
+------------------------------------------------------------
+
+Open Information Extraction:
+  - Prompt Tokens: 225216
+  - Completion Tokens: 152932
+  - Subtotal: 378148
+
+Schema Definition:
+  - Prompt Tokens: 370871
+  - Completion Tokens: 116876
+  - Subtotal: 487747
+
+Schema Normalization:
+  - Prompt Tokens: 0
+  - Completion Tokens: 0
+  - Subtotal: 0
+
+Entity Extraction:
+  - Prompt Tokens: 0
+  - Completion Tokens: 0
+  - Subtotal: 0
+
+Entity Merging:
+  - Prompt Tokens: 0
+  - Completion Tokens: 0
+  - Subtotal: 0

@@ -1,0 +1,3 @@
+Design Level Suggestions:,Prioritize extraction of newly added relationship types to enhance schema relevance and reduce noise
+Implementation Level Suggestions:,"Extract newly added relationship types such as 'effect', 'hasattribute', 'holds', and 'about' to maintain consistency"
+Implementation Level Suggestions:,Skip extraction of removed entity types and their variants to avoid redundancy and optimize extraction efficiency

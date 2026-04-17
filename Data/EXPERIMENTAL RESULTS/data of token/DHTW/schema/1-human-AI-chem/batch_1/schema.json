@@ -1,0 +1,83 @@
+{
+  "title": "schema_batch_1_revised",
+  "id": "schema_batch_1_revised",
+  "entity type": [
+    {
+      "id": "biomolecule",
+      "label": "biomolecule"
+    },
+    {
+      "id": "chemical",
+      "label": "chemical"
+    }
+  ],
+  "relation": [
+    {
+      "id": "upregulator",
+      "label": "upregulator",
+      "domain": "chemical",
+      "range": "biomolecule"
+    },
+    {
+      "id": "downregulator",
+      "label": "downregulator",
+      "domain": "chemical",
+      "range": "biomolecule"
+    },
+    {
+      "id": "indirect upregulator",
+      "label": "indirect upregulator",
+      "domain": "chemical",
+      "range": "biomolecule"
+    },
+    {
+      "id": "indirect downregulator",
+      "label": "indirect downregulator",
+      "domain": "chemical",
+      "range": "biomolecule"
+    },
+    {
+      "id": "agonist",
+      "label": "agonist",
+      "domain": "chemical",
+      "range": "biomolecule"
+    },
+    {
+      "id": "antagonist",
+      "label": "antagonist",
+      "domain": "chemical",
+      "range": "biomolecule"
+    },
+    {
+      "id": "inhibitor",
+      "label": "inhibitor",
+      "domain": "chemical",
+      "range": "biomolecule"
+    },
+    {
+      "id": "substrate",
+      "label": "substrate",
+      "domain": "chemical",
+      "range": "biomolecule"
+    },
+    {
+      "id": "product of",
+      "label": "product of",
+      "domain": "chemical",
+      "range": "biomolecule"
+    },
+    {
+      "id": "interacts with",
+      "label": "interacts with",
+      "domain": "chemical",
+      "range": "biomolecule"
+    },
+    {
+      "id": "regulates",
+      "label": "regulates",
+      "domain": "chemical",
+      "range": "biomolecule"
+    }
+  ],
+  "hierarchy": []
+}

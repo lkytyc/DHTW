@@ -1,0 +1,7 @@
+dataset,method,calls,prompt_tokens,completion_tokens,total_tokens,file
+chemport,NERLLMPromptExtractor,13569,8409303,781571,9190874,token\docs\chemport.json
+chemport,RelationLLMTripleExtractor,1018,2885472,282682,3168154,token\docs\chemport.json
+drugport,NERLLMPromptExtractor,10129,6278971,612146,6891117,token\docs\drugport.json
+drugport,RelationLLMTripleExtractor,1234,2791267,232738,3024005,token\docs\drugport.json
+FinReflextKG,NERLLMPromptExtractor,5968,4184893,546097,4730990,token\docs\FinReflextKG.json
+FinReflextKG,RelationLLMTripleExtractor,456,1654136,106604,1760740,token\docs\FinReflextKG.json

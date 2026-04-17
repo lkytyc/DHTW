@@ -1,0 +1,39 @@
+{
+  "title": "schema_batch_1",
+  "id": "schema_batch_1",
+  "entity type": [
+    {
+      "id": "EntityType",
+      "label": "EntityType"
+    },
+    {
+      "id": "Provenance",
+      "label": "Provenance"
+    },
+    {
+      "id": "RelationshipType",
+      "label": "RelationshipType"
+    }
+  ],
+  "relation": [
+    {
+      "id": "hasEntityType",
+      "label": "hasEntityType",
+      "domain": "EntityType",
+      "range": "EntityType"
+    },
+    {
+      "id": "hasRelationshipType",
+      "label": "hasRelationshipType",
+      "domain": "RelationshipType",
+      "range": "RelationshipType"
+    },
+    {
+      "id": "hasProvenance",
+      "label": "hasProvenance",
+      "domain": "Provenance",
+      "range": "Provenance"
+    }
+  ],
+  "hierarchy": []
+}

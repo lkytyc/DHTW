@@ -1,0 +1,47 @@
+@prefix ex: <http://example.org/financial-disclosure-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+# Classes
+ex:EntityType rdf:type owl:Class .
+ex:RelationshipType rdf:type owl:Class .
+ex:Provenance rdf:type owl:Class .
+
+# Object Properties
+ex:hasEntityType rdf:type owl:ObjectProperty ;
+    rdfs:domain ex:EntityType ;
+    rdfs:range ex:EntityType .
+
+ex:hasRelationshipType rdf:type owl:ObjectProperty ;
+    rdfs:domain ex:RelationshipType ;
+    rdfs:range ex:RelationshipType .
+
+ex:hasProvenance rdf:type owl:ObjectProperty ;
+    rdfs:domain ex:Provenance ;
+    rdfs:range ex:Provenance .
+
+# Data Properties
+ex:entityTypeValue rdf:type owl:DatatypeProperty ;
+    rdfs:domain ex:EntityType ;
+    rdfs:range rdf:Literal .
+
+ex:relationshipTypeValue rdf:type owl:DatatypeProperty ;
+    rdfs:domain ex:RelationshipType ;
+    rdfs:range rdf:Literal .
+
+ex:provenanceValue rdf:type owl:DatatypeProperty ;
+    rdfs:domain ex:Provenance ;
+    rdfs:range rdf:Literal .
+
+# SWRL-like Rules (as comments)
+# Rule: EntityType must be derived from entity_type and target_type fields
+# Rule: RelationshipType must be derived from relationship field
+# Rule: Provenance must retain all dataset-provided columns unchanged
+
+# CQ Coverage
+# CQ1: Entity types are covered by ex:EntityType and ex:entityTypeValue
+# CQ2: Relationship types are covered by ex:RelationshipType and ex:relationshipTypeValue
+# CQ3: Directionality is enforced by domain/range in object properties
+# CQ4: Provenance is covered by ex:Provenance and ex:provenanceValue
+# CQ5: No generic placeholders; all values are exact from dataset fields

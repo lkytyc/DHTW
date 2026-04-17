@@ -1,0 +1,40 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix ex: <http://example.org/biomed-interaction-schema#> .
+
+<http://example.org/biomed-interaction-schema> rdf:type owl:Ontology .
+
+# Classes
+ex:chemical rdf:type owl:Class .
+ex:biomolecule rdf:type owl:Class .
+
+# Object Properties
+# Note: Placeholder predicates are not valid for data ingestion and are only for drafting purposes.
+# They must be removed once the label inventory is fully mapped.
+
+# Constraints
+# Domain/Range for properties are assumed based on the class definitions.
+# Cardinality is not specified in the materials; assume multiple interactions unless otherwise stated.
+
+# CQ Coverage
+# CQ1: What are the main entity types described in the materials (chemical/drug, protein/gene, etc.)?
+# - Covered by: ex:chemical, ex:biomolecule
+
+# CQ2: Which type-to-type relations between chemicals/drugs and proteins/genes are stated?
+# - Placeholder for relations, pending label inventory extraction.
+
+# CQ3: Are any relations directional in the materials, and how should direction be represented consistently?
+# - Placeholder for relations, pending label inventory extraction.
+
+# CQ4: Do the materials distinguish different interaction categories (e.g., binding vs regulation vs metabolism), and should the schema keep them separate or merge them?
+# - Placeholder for relations, pending label inventory extraction.
+
+# CQ5: Do the materials include contextual entities (disease, species, cell line, tissue, pathway/process) that must be included as types?
+# - Not included, as they are not explicitly annotated as participating entities in the core relation records.
+
+# CQ6: Which relation candidates are underspecified or ambiguous and should be excluded unless explicitly stated?
+# - Placeholder for relations, pending label inventory extraction.
+
+# CQ7: Is there any subclass structure explicitly supported (e.g., Drug ⊆ Chemical, Protein ⊆ Biomolecule), and what should it be?
+# - Not included, as subclassing is not explicitly required by the dataset.

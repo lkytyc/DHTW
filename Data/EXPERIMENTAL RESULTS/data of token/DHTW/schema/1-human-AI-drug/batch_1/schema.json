@@ -1,0 +1,83 @@
+{
+  "title": "schema_batch_1",
+  "id": "schema_batch_1",
+  "entity type": [
+    {
+      "id": "chemical",
+      "label": "chemical"
+    },
+    {
+      "id": "gene_or_protein",
+      "label": "gene_or_protein"
+    }
+  ],
+  "relation": [
+    {
+      "id": "agonist",
+      "label": "agonist",
+      "domain": "chemical",
+      "range": "gene_or_protein"
+    },
+    {
+      "id": "antagonist",
+      "label": "antagonist",
+      "domain": "chemical",
+      "range": "gene_or_protein"
+    },
+    {
+      "id": "activator",
+      "label": "activator",
+      "domain": "chemical",
+      "range": "gene_or_protein"
+    },
+    {
+      "id": "inhibitor",
+      "label": "inhibitor",
+      "domain": "chemical",
+      "range": "gene_or_protein"
+    },
+    {
+      "id": "direct_regulator",
+      "label": "direct_regulator",
+      "domain": "chemical",
+      "range": "gene_or_protein"
+    },
+    {
+      "id": "indirect_upregulator",
+      "label": "indirect_upregulator",
+      "domain": "chemical",
+      "range": "gene_or_protein"
+    },
+    {
+      "id": "indirect_downregulator",
+      "label": "indirect_downregulator",
+      "domain": "chemical",
+      "range": "gene_or_protein"
+    },
+    {
+      "id": "substrate",
+      "label": "substrate",
+      "domain": "gene_or_protein",
+      "range": "chemical"
+    },
+    {
+      "id": "product_of",
+      "label": "product_of",
+      "domain": "gene_or_protein",
+      "range": "chemical"
+    },
+    {
+      "id": "agonist_and_activator",
+      "label": "agonist_and_activator",
+      "domain": "chemical",
+      "range": "gene_or_protein"
+    },
+    {
+      "id": "agonist_and_inhibitor",
+      "label": "agonist_and_inhibitor",
+      "domain": "chemical",
+      "range": "gene_or_protein"
+    }
+  ],
+  "hierarchy": []
+}

@@ -1,0 +1,41 @@
+﻿Entity Type1,Relation Type,Entity Type2
+company,operates in,country or region
+company,headquartered in,country or region
+company,belongs to industry,industry
+company,has business unit,business unit
+company,offers product or service,product or service
+company,launches,product or service
+company,produces,product or service
+company,sells to market,country or region
+company,has stake in,company
+company,partners with,company
+company,acquires,company
+company,sells business to,company
+company,employs,person
+person,leads,company
+company,appoints,person
+company,reports metric,financial metric
+company,guides metric,financial metric
+financial metric,measured in,currency
+event,changes,financial metric
+event,improves,financial metric
+event,hurts,financial metric
+risk,hurts,financial metric
+company,faces risk,risk
+company,mitigates risk,risk
+regulation,applies to,company
+company,subject to,regulation
+company,violates,regulation
+lawsuit,involves,company
+company,sued in,lawsuit
+company,settles,lawsuit
+company,addresses esg topic,esg topic
+esg topic,affects,risk
+company,announces,event
+company,plans,event
+company,cancels,event
+document,mentions,company
+document,mentions,person
+document,mentions,event
+document,mentions,risk
+document,covers,industry

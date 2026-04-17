@@ -1,0 +1,110 @@
+{
+  "title": "schema_1",
+  "id": "schema_1",
+  "entity type": [
+    {
+      "id": "Biomolecule",
+      "label": "Biomolecule"
+    },
+    {
+      "id": "CellLine",
+      "label": "CellLine"
+    },
+    {
+      "id": "Chemical",
+      "label": "Chemical"
+    },
+    {
+      "id": "Disease",
+      "label": "Disease"
+    },
+    {
+      "id": "Drug",
+      "label": "Drug"
+    },
+    {
+      "id": "Gene",
+      "label": "Gene"
+    },
+    {
+      "id": "Pathway",
+      "label": "Pathway"
+    },
+    {
+      "id": "Protein",
+      "label": "Protein"
+    },
+    {
+      "id": "Species",
+      "label": "Species"
+    },
+    {
+      "id": "Tissue",
+      "label": "Tissue"
+    }
+  ],
+  "relation": [
+    {
+      "id": "hasInteractionWith",
+      "label": "hasInteractionWith",
+      "domain": "Chemical",
+      "range": "Biomolecule"
+    },
+    {
+      "id": "isInteractedBy",
+      "label": "isInteractedBy",
+      "domain": "Biomolecule",
+      "range": "Chemical"
+    },
+    {
+      "id": "enhances",
+      "label": "enhances",
+      "domain": "Chemical",
+      "range": "Biomolecule"
+    },
+    {
+      "id": "inhibits",
+      "label": "inhibits",
+      "domain": "Chemical",
+      "range": "Biomolecule"
+    },
+    {
+      "id": "bindsTo",
+      "label": "bindsTo",
+      "domain": "Chemical",
+      "range": "Biomolecule"
+    },
+    {
+      "id": "regulates",
+      "label": "regulates",
+      "domain": "Chemical",
+      "range": "Biomolecule"
+    },
+    {
+      "id": "metabolizes",
+      "label": "metabolizes",
+      "domain": "Chemical",
+      "range": "Biomolecule"
+    }
+  ],
+  "hierarchy": [
+    {
+      "id": "IsA",
+      "label": "IsA",
+      "domain": "Drug",
+      "range": "Chemical"
+    },
+    {
+      "id": "IsA",
+      "label": "IsA",
+      "domain": "Protein",
+      "range": "Biomolecule"
+    },
+    {
+      "id": "IsA",
+      "label": "IsA",
+      "domain": "Gene",
+      "range": "Biomolecule"
+    }
+  ]
+}
