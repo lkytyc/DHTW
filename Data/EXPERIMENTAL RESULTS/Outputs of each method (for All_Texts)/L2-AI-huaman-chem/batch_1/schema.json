@@ -1,0 +1,65 @@
+{
+  "title": "schema_batch_1_midscore",
+  "id": "schema_batch_1_midscore",
+  "entity type": [
+    {
+      "id": "Biomolecule",
+      "label": "Biomolecule"
+    },
+    {
+      "id": "Chemical",
+      "label": "Chemical"
+    }
+  ],
+  "relation": [
+    {
+      "id": "enhanceactivity",
+      "label": "enhanceactivity",
+      "domain": "Chemical",
+      "range": "Biomolecule"
+    },
+    {
+      "id": "inhibitexpression",
+      "label": "inhibitexpression",
+      "domain": "Chemical",
+      "range": "Biomolecule"
+    },
+    {
+      "id": "bindto",
+      "label": "bindto",
+      "domain": "Biomolecule",
+      "range": "Chemical"
+    },
+    {
+      "id": "upregulator",
+      "label": "upregulator",
+      "domain": "Chemical",
+      "range": "Biomolecule"
+    },
+    {
+      "id": "downregulator",
+      "label": "downregulator",
+      "domain": "Chemical",
+      "range": "Biomolecule"
+    },
+    {
+      "id": "agonist",
+      "label": "agonist",
+      "domain": "Chemical",
+      "range": "Biomolecule"
+    },
+    {
+      "id": "antagonist",
+      "label": "antagonist",
+      "domain": "Chemical",
+      "range": "Biomolecule"
+    },
+    {
+      "id": "substrate",
+      "label": "substrate",
+      "domain": "Biomolecule",
+      "range": "Chemical"
+    }
+  ],
+  "hierarchy": []
+}

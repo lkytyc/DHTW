@@ -1,0 +1,6 @@
+﻿Entity Type1,Relation Type,Entity Type2
+Chemical,Upregulator,Gene or Protein
+Chemical,Downregulator,Gene or Protein
+Chemical,Agonist,Gene or Protein
+Chemical,Antagonist,Gene or Protein
+Gene or Protein,Substrate or Product Relation,Chemical

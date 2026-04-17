@@ -1,0 +1,27 @@
+{
+  "total_prompt_tokens": 403023,
+  "total_completion_tokens": 4126,
+  "total_tokens": 407149,
+  "total_llm_time_seconds": 57.05,
+  "total_user_interaction_time_seconds": 562.45,
+  "total_api_calls": 7,
+  "total_batches": 1,
+  "batches_detail": [
+    {
+      "batch_id": 1,
+      "rounds": 6,
+      "llm_usage": {
+        "total_prompt_tokens": 403023,
+        "total_completion_tokens": 4126,
+        "total_tokens": 407149,
+        "total_time_seconds": 57.05,
+        "api_calls": 7,
+        "avg_time_per_call_seconds": 8.15
+      },
+      "user_interaction_time_seconds": 562.45,
+      "batch_total_time_seconds": 918.7
+    }
+  ],
+  "total_run_time_seconds": 619.5,
+  "avg_llm_time_per_call_seconds": 8.15
+}

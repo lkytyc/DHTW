@@ -1,0 +1,78 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "ChemPort Process Schema",
+    "type": "object",
+    "properties": {
+        "textualUnit": {
+            "type": "string",
+            "description": "The original text unit, such as a sentence or passage, from which entities and relations are extracted."
+        },
+        "entities": {
+            "type": "array",
+            "description": "List of entities mentioned in the textual unit.",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The name or identifier of the entity, which may be a common name, systematic name, abbreviation, or identifier."
+                    },
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "chemical",
+                            "protein/gene"
+                        ],
+                        "description": "The normalized type of the entity, indicating whether it is a chemical or a protein/gene."
+                    }
+                },
+                "required": [
+                    "name",
+                    "type"
+                ]
+            }
+        },
+        "relations": {
+            "type": "array",
+            "description": "List of relations asserted between entities in the textual unit.",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "chemicalEntity": {
+                        "type": "string",
+                        "description": "The name or identifier of the chemical entity involved in the relation."
+                    },
+                    "proteinGeneEntity": {
+                        "type": "string",
+                        "description": "The name or identifier of the protein/gene entity involved in the relation."
+                    },
+                    "interactionType": {
+                        "type": "string",
+                        "enum": [
+                            "activates",
+                            "inhibits",
+                            "agonist",
+                            "antagonist",
+                            "substrate"
+                        ],
+                        "description": "The type of interaction asserted between the chemical and protein/gene entities."
+                    },
+                    "evidenceText": {
+                        "type": "string",
+                        "description": "Optional text from the original unit that supports the relation, capturing context, qualifiers, or uncertainty."
+                    }
+                },
+                "required": [
+                    "chemicalEntity",
+                    "proteinGeneEntity",
+                    "interactionType"
+                ]
+            }
+        }
+    },
+    "required": [
+        "textualUnit",
+        "entities"
+    ],
+    "description": "Schema representing the ChemPort process, capturing entities and their relationships within a textual unit."
+}

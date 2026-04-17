@@ -1,0 +1,115 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "ChemPort-like Entity-Relation Schema",
+    "description": "Schema representing entities and their interactions within a single textual unit, designed for robust mapping to chemical\u2013protein/gene interaction annotations.",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "textualUnit": {
+            "type": "string",
+            "description": "The original text unit (e.g., one sentence or short passage) from which entities and relations are extracted."
+        },
+        "entities": {
+            "type": "array",
+            "description": "Entity mentions appearing in the textual unit.",
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "entityId": {
+                        "type": "string",
+                        "description": "Unique identifier for this entity mention within the textual unit (e.g., E1, E2...)."
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Surface form of the entity as written (common name, abbreviation, or identifier)."
+                    },
+                    "normalizedName": {
+                        "type": "string",
+                        "description": "Optional canonical/normalized form when available."
+                    },
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "chemical",
+                            "protein/gene"
+                        ],
+                        "description": "Normalized entity type for mapping purposes."
+                    },
+                    "span": {
+                        "type": "object",
+                        "description": "Optional character offsets of the entity mention within textualUnit.",
+                        "additionalProperties": false,
+                        "properties": {
+                            "start": {
+                                "type": "integer",
+                                "description": "Starting character offset of the entity mention."
+                            },
+                            "end": {
+                                "type": "integer",
+                                "description": "Ending character offset of the entity mention."
+                            }
+                        },
+                        "required": [
+                            "start",
+                            "end"
+                        ]
+                    }
+                },
+                "required": [
+                    "entityId",
+                    "name",
+                    "type"
+                ]
+            }
+        },
+        "relations": {
+            "type": "array",
+            "description": "Relations asserted between entities in the textual unit. May be empty if no explicit interaction is stated.",
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "chemicalEntityId": {
+                        "type": "string",
+                        "description": "entityId of the chemical entity participating in the relation."
+                    },
+                    "proteinGeneEntityId": {
+                        "type": "string",
+                        "description": "entityId of the protein/gene entity participating in the relation."
+                    },
+                    "interactionType": {
+                        "type": "string",
+                        "description": "Interaction label as expressed or normalized. Open vocabulary; keep consistent within the project.",
+                        "examples": [
+                            "activates",
+                            "inhibits",
+                            "agonist",
+                            "antagonist",
+                            "substrate",
+                            "binds",
+                            "modulates",
+                            "upregulates",
+                            "downregulates",
+                            "blocks",
+                            "potentiates"
+                        ]
+                    },
+                    "evidenceText": {
+                        "type": "string",
+                        "description": "Optional supporting phrase from textualUnit capturing evidence, qualifiers, or uncertainty."
+                    }
+                },
+                "required": [
+                    "chemicalEntityId",
+                    "proteinGeneEntityId",
+                    "interactionType"
+                ]
+            }
+        }
+    },
+    "required": [
+        "textualUnit",
+        "entities"
+    ]
+}
