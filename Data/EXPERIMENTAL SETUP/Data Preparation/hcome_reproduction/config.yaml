@@ -1,0 +1,22 @@
+app:
+  project_name: "hcome_reproduction"
+  timezone: "Asia/Tokyo"
+
+paths:
+  project_input: "input/project_input.yaml"
+  source_text: "input/source_text.txt"
+  output_dir: "outputs"
+
+llm:
+  base_url: "https://api.openai.com/v1"
+  api_key_env: "OPENAI_API_KEY"
+  model: "gpt-4o"
+  temperature: 0
+  timeout_seconds: 240
+  max_retries: 2
+
+run:
+  chunk_size_lines: 0
+  max_lines: 0
+  interactive: true
+  enforce_no_hallucination: true
