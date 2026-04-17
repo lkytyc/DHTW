@@ -1,0 +1,30 @@
+{
+    "stages": {
+        "1": {
+            "model": "gpt-4o",
+            "timestamp_utc": "2026-02-22T10:47:23.964761Z",
+            "input_tokens": 953,
+            "output_tokens": 999,
+            "total_tokens": 1952
+        },
+        "2": {
+            "model": "gpt-4o",
+            "timestamp_utc": "2026-02-22T10:50:02.843433Z",
+            "input_tokens": 10312,
+            "output_tokens": 1119,
+            "total_tokens": 11431
+        },
+        "3": {
+            "model": "gpt-4o",
+            "timestamp_utc": "2026-02-22T11:40:34.308653Z",
+            "input_tokens": 120352,
+            "output_tokens": 1041,
+            "total_tokens": 121393
+        }
+    },
+    "total": {
+        "input_tokens": 131617,
+        "output_tokens": 3159,
+        "total_tokens": 134776
+    }
+}

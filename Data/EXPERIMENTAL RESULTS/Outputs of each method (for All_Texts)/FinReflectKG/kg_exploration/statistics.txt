@@ -1,0 +1,17 @@
+================================================================================
+KGExploration Statistics Report
+================================================================================
+Token Statistics:
+  - Total Prompt Tokens: 2,746,124
+  - Total Completion Tokens: 279,504
+  - Total Tokens: 3,025,628
+
+Time Statistics:
+  - LLM Call Count: 584
+  - Average Response Time: 6.03 s
+  - Fastest Response Time: 0.74 s
+  - Slowest Response Time: 125.24 s
+  - Total LLM Response Time: 3523.75 s (58.73 min)
+  - Human Feedback Time: 2554.87 s (42.58 min)
+  - Total Time (LLM + Human Feedback): 6078.62 s (101.31 min)
+================================================================================

@@ -1,0 +1,60 @@
+# Iterative Discussion:
+# KE: We need to identify core entity types and relations from the materials. Let's start with entity types.
+# DE: The materials mention chemicals/drugs (e.g., PAF, leukotrienes, genistin) and proteins/genes (e.g., 5-lipoxygenase, ERα).
+# KW: For practical usability, we should also consider contextual entities like species (rat, mouse), cell lines, and diseases.
+# KE: Agreed. Let's define Chemical, Drug, Protein, Gene, Species, CellLine, and Disease as classes.
+# DE: For relations, we see interactions like inhibition (e.g., DEC inhibits 5-lipoxygenase) and binding (e.g., SRC1 binds ERα).
+# KW: Directionality is important. We should represent relations like inhibits and binds as directional.
+# KE: We'll use inhibits and binds as object properties with clear domain and range.
+# DE: The materials also mention processes like phosphorylation and pathways like 5-lipoxygenase pathway.
+# KW: Should we include Pathway/Process as a class?
+# KE: Yes, Pathway/Process can be a class to capture these interactions.
+# DE: We should distinguish between different interaction categories like binding vs regulation.
+# KW: Let's keep them separate for clarity in relation extraction.
+# KE: Agreed. We'll define separate properties for different interaction types.
+# DE: Any subclass structure? Drug is a kind of Chemical, and Protein is a kind of Biomolecule.
+# KE: Let's define Drug ⊆ Chemical and Protein ⊆ Biomolecule.
+# KW: For competency questions, we need to ensure we cover entity types, relations, and directionality.
+# KE: Let's finalize the ontology with these considerations.
+
+@prefix ex: <http://example.org/biomed-interaction-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:Chemical a owl:Class .
+ex:Drug a owl:Class ;
+    rdfs:subClassOf ex:Chemical .
+ex:Protein a owl:Class ;
+    rdfs:subClassOf ex:Biomolecule .
+ex:Gene a owl:Class .
+ex:Biomolecule a owl:Class .
+ex:Species a owl:Class .
+ex:CellLine a owl:Class .
+ex:Disease a owl:Class .
+ex:PathwayProcess a owl:Class .
+
+ex:inhibits a owl:ObjectProperty ;
+    rdfs:domain ex:Chemical ;
+    rdfs:range ex:Protein .
+
+ex:binds a owl:ObjectProperty ;
+    rdfs:domain ex:Protein ;
+    rdfs:range ex:Protein .
+
+ex:regulates a owl:ObjectProperty ;
+    rdfs:domain ex:Chemical ;
+    rdfs:range ex:PathwayProcess .
+
+ex:expressedIn a owl:ObjectProperty ;
+    rdfs:domain ex:Gene ;
+    rdfs:range ex:CellLine .
+
+# CQ Coverage:
+# - Entity types: Chemical, Drug, Protein, Gene, Species, CellLine, Disease, PathwayProcess
+# - Type-to-type relations: inhibits, binds, regulates, expressedIn
+# - Directionality: Represented in inhibits, binds, regulates
+# - Interaction categories: Separate properties for binding, regulation
+# - Contextual entities: Included as classes (Species, CellLine, Disease)
+# - Subclass structure: Drug ⊆ Chemical, Protein ⊆ Biomolecule

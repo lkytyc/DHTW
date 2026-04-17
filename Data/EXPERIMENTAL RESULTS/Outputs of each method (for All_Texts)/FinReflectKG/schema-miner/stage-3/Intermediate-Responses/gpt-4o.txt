@@ -1,0 +1,155 @@
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Fer Process Schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "extractionUnit": {
+      "type": "object",
+      "description": "Represents a single chunk of filing text from which facts are extracted.",
+      "additionalProperties": false,
+      "properties": {
+        "chunkText": {
+          "type": "string",
+          "description": "The text of the chunk from the corporate filing."
+        },
+        "facts": {
+          "type": "array",
+          "description": "List of extracted facts represented as triples. May be empty.",
+          "default": [],
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "factId": {
+                "type": "string",
+                "description": "Optional identifier for this fact within the chunk (e.g., F1, F2...)."
+              },
+              "subjectEntity": {
+                "type": "object",
+                "description": "The subject entity in the triple.",
+                "additionalProperties": false,
+                "properties": {
+                  "surfaceName": {
+                    "type": "string"
+                  },
+                  "entityType": {
+                    "type": "string",
+                    "description": "Canonical entity type label (open vocabulary). Use a stable, canonical set (avoid synonyms)."
+                  },
+                  "mappedType": {
+                    "type": "string",
+                    "description": "Optional field to map entityType to a benchmark inventory."
+                  }
+                },
+                "required": ["surfaceName", "entityType"]
+              },
+              "relation": {
+                "type": "object",
+                "description": "The relation connecting the subject and object entities.",
+                "additionalProperties": false,
+                "properties": {
+                  "relationLabel": {
+                    "type": "string",
+                    "description": "Canonical relation label (open vocabulary). Use a stable, canonical set."
+                  },
+                  "mappedRelation": {
+                    "type": "string",
+                    "description": "Optional field to map relationLabel to a benchmark inventory."
+                  }
+                },
+                "required": ["relationLabel"]
+              },
+              "objectEntity": {
+                "type": "object",
+                "description": "The object entity in the triple.",
+                "additionalProperties": false,
+                "properties": {
+                  "surfaceName": {
+                    "type": "string"
+                  },
+                  "entityType": {
+                    "type": "string",
+                    "description": "Canonical entity type label (open vocabulary). Use a stable, canonical set (avoid synonyms)."
+                  },
+                  "mappedType": {
+                    "type": "string",
+                    "description": "Optional field to map entityType to a benchmark inventory."
+                  }
+                },
+                "required": ["surfaceName", "entityType"]
+              },
+              "evidence": {
+                "type": "object",
+                "description": "Evidence grounding for the extracted triple (optional). Spans are character offsets relative to chunkText.",
+                "additionalProperties": false,
+                "properties": {
+                  "evidencePhrase": {
+                    "type": "string"
+                  },
+                  "characterSpans": {
+                    "type": "array",
+                    "description": "Character spans in chunkText. Convention: start is inclusive; end is exclusive.",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "start": {
+                          "type": "integer"
+                        },
+                        "end": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": ["start", "end"]
+                    }
+                  }
+                }
+              },
+              "temporalInformation": {
+                "type": "object",
+                "description": "Temporal information related to the triple (optional).",
+                "additionalProperties": false,
+                "properties": {
+                  "startDate": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "endDate": {
+                    "type": "string",
+                    "format": "date"
+                  }
+                }
+              }
+            },
+            "required": ["subjectEntity", "relation", "objectEntity"]
+          }
+        }
+      },
+      "required": ["chunkText"]
+    },
+    "documentMetadata": {
+      "type": "object",
+      "description": "Metadata related to the corporate filing document.",
+      "additionalProperties": false,
+      "properties": {
+        "companyIdentifier": {
+          "type": "string"
+        },
+        "filingYear": {
+          "type": "integer"
+        },
+        "filingPeriod": {
+          "type": "string"
+        },
+        "sectionContext": {
+          "type": "string"
+        }
+      },
+      "required": ["companyIdentifier", "filingYear"]
+    }
+  },
+  "required": ["extractionUnit", "documentMetadata"]
+}
+```

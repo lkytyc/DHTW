@@ -1,0 +1,47 @@
+@prefix ex: <http://example.org/biomed-interaction-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+# Classes
+ex:ChemicalEntity rdf:type owl:Class .
+ex:BioEntity rdf:type owl:Class .
+
+# Object Properties
+ex:interactsWith rdf:type owl:ObjectProperty ;
+    rdfs:domain ex:ChemicalEntity ;
+    rdfs:range ex:BioEntity .
+
+ex:binds rdf:type owl:ObjectProperty ;
+    rdfs:domain ex:ChemicalEntity ;
+    rdfs:range ex:BioEntity .
+
+ex:inhibits rdf:type owl:ObjectProperty ;
+    rdfs:domain ex:ChemicalEntity ;
+    rdfs:range ex:BioEntity .
+
+ex:activates rdf:type owl:ObjectProperty ;
+    rdfs:domain ex:ChemicalEntity ;
+    rdfs:range ex:BioEntity .
+
+# Data Properties
+ex:hasConcentration rdf:type owl:DatatypeProperty ;
+    rdfs:domain ex:ChemicalEntity ;
+    rdfs:range rdf:Literal .
+
+ex:hasEffect rdf:type owl:DatatypeProperty ;
+    rdfs:domain ex:ChemicalEntity ;
+    rdfs:range rdf:Literal .
+
+# SWRL-like rules (as comments)
+# Rule: If a ChemicalEntity binds a BioEntity, it may inhibit or activate the BioEntity.
+# Rule: If a ChemicalEntity interactsWith a BioEntity, it may have a specific effect.
+
+# CQ Coverage
+# CQ1: Main entity types are ChemicalEntity and BioEntity.
+# CQ2: Type-to-type relations include interactsWith, binds, inhibits, activates.
+# CQ3: Relations are directional, represented by domain and range.
+# CQ4: Interaction categories are kept separate (binds vs inhibits vs activates).
+# CQ5: Contextual entities are deferred unless proven as annotated argument categories.
+# CQ6: No underspecified relations; all relations are explicitly stated.
+# CQ7: No subclass structure unless explicitly encoded in the artifact’s annotation categories.

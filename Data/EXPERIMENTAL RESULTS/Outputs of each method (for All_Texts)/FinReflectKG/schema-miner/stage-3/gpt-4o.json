@@ -1,0 +1,153 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Financial KG Schema (Open, Canonical Labels)",
+  "description": "Schema for extracting financial knowledge graph triples from filing text chunks. Uses a compact, human-readable label set for entityType and relationLabel.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "chunkText": {
+      "type": "string",
+      "description": "A text chunk from a financial filing (sentence/paragraph)."
+    },
+    "facts": {
+      "type": "array",
+      "description": "Extracted facts as directed triples. May be empty if no clear fact is stated.",
+      "default": [],
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "subject": { "$ref": "#/$defs/entity" },
+          "relation": { "$ref": "#/$defs/relation" },
+          "object": { "$ref": "#/$defs/entity" },
+          "evidence": {
+            "type": "object",
+            "description": "Optional grounding evidence for the fact.",
+            "additionalProperties": false,
+            "properties": {
+              "phrase": {
+                "type": "string",
+                "description": "Short evidence phrase from chunkText."
+              },
+              "spans": {
+                "type": "array",
+                "description": "Character spans in chunkText (start inclusive, end exclusive).",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "start": { "type": "integer" },
+                    "end": { "type": "integer" }
+                  },
+                  "required": ["start", "end"]
+                }
+              }
+            }
+          },
+          "time": {
+            "type": "object",
+            "description": "Optional time window if explicitly stated.",
+            "additionalProperties": false,
+            "properties": {
+              "startDate": { "type": "string", "format": "date" },
+              "endDate": { "type": "string", "format": "date" }
+            }
+          }
+        },
+        "required": ["subject", "relation", "object"]
+      }
+    },
+    "doc": {
+      "type": "object",
+      "description": "Minimal document metadata for grouping and evaluation.",
+      "additionalProperties": false,
+      "properties": {
+        "company": { "type": "string", "description": "Reporting company identifier (e.g., ticker)." },
+        "year": { "type": "integer", "description": "Filing year." },
+        "period": { "type": "string", "description": "Optional fiscal period label." },
+        "section": { "type": "string", "description": "Optional section context." }
+      },
+      "required": ["company", "year"]
+    }
+  },
+  "required": ["chunkText", "facts", "doc"],
+  "$defs": {
+    "entity": {
+      "type": "object",
+      "description": "A KG node with a canonical type label.",
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string", "description": "Surface mention or normalized name." },
+        "type": {
+          "type": "string",
+          "description": "Canonical entity type label (compact set).",
+          "enum": [
+            "company",
+            "government",
+            "regulator",
+            "person",
+            "location",
+            "product",
+            "sector",
+            "market",
+            "instrument",
+            "metric",
+            "indicator",
+            "policy",
+            "risk",
+            "lawsuit",
+            "segment",
+            "event",
+            "macro",
+            "esg",
+            "material",
+            "commentary"
+          ]
+        }
+      },
+      "required": ["name", "type"]
+    },
+    "relation": {
+      "type": "object",
+      "description": "A directed edge with a canonical relation label.",
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "type": "string",
+          "description": "Canonical relation label (compact set).",
+          "enum": [
+            "owns",
+            "announces",
+            "operates",
+            "introduces",
+            "produces",
+            "regulates",
+            "involved",
+            "impacted",
+            "impacts",
+            "helps",
+            "harms",
+            "related",
+            "member",
+            "invests",
+            "increases",
+            "decreases",
+            "depends",
+            "shortage",
+            "affectsstock",
+            "stockdown",
+            "stockup",
+            "marketreacts",
+            "discloses",
+            "faces",
+            "complies",
+            "subjectto",
+            "supplies",
+            "partners"
+          ]
+        }
+      },
+      "required": ["label"]
+    }
+  }
+}

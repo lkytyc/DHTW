@@ -1,0 +1,151 @@
+{
+  "title": "finreflectkg_schema_80",
+  "id": "finreflectkg_schema_80",
+  "entity type": [
+    {
+      "id": "org",
+      "label": "org"
+    },
+    {
+      "id": "person",
+      "label": "person"
+    },
+    {
+      "id": "gpe",
+      "label": "gpe"
+    },
+    {
+      "id": "product",
+      "label": "product"
+    },
+    {
+      "id": "event",
+      "label": "event"
+    },
+    {
+      "id": "sector",
+      "label": "sector"
+    },
+    {
+      "id": "fin_metric",
+      "label": "fin_metric"
+    },
+    {
+      "id": "risk_factor",
+      "label": "risk_factor"
+    },
+    {
+      "id": "litigation",
+      "label": "litigation"
+    },
+    {
+      "id": "segment",
+      "label": "segment"
+    },
+    {
+      "id": "esg_topic",
+      "label": "esg_topic"
+    },
+    {
+      "id": "regulatory_requirement",
+      "label": "regulatory_requirement"
+    },
+    {
+      "id": "commentary",
+      "label": "commentary"
+    }
+  ],
+  "relation": [
+    {
+      "id": "related_to",
+      "label": "related_to",
+      "domain": "org",
+      "range": "org"
+    },
+    {
+      "id": "member_of",
+      "label": "member_of",
+      "domain": "org",
+      "range": "sector"
+    },
+    {
+      "id": "operates_in",
+      "label": "operates_in",
+      "domain": "org",
+      "range": "gpe"
+    },
+    {
+      "id": "has_stake_in",
+      "label": "has_stake_in",
+      "domain": "org",
+      "range": "org"
+    },
+    {
+      "id": "announces",
+      "label": "announces",
+      "domain": "org",
+      "range": "event"
+    },
+    {
+      "id": "introduces",
+      "label": "introduces",
+      "domain": "org",
+      "range": "product"
+    },
+    {
+      "id": "produces",
+      "label": "produces",
+      "domain": "org",
+      "range": "product"
+    },
+    {
+      "id": "impacts",
+      "label": "impacts",
+      "domain": "event",
+      "range": "fin_metric"
+    },
+    {
+      "id": "positively_impacts",
+      "label": "positively_impacts",
+      "domain": "event",
+      "range": "fin_metric"
+    },
+    {
+      "id": "negatively_impacts",
+      "label": "negatively_impacts",
+      "domain": "event",
+      "range": "fin_metric"
+    },
+    {
+      "id": "regulates",
+      "label": "regulates",
+      "domain": "regulatory_requirement",
+      "range": "org"
+    },
+    {
+      "id": "faces_risk",
+      "label": "faces_risk",
+      "domain": "org",
+      "range": "risk_factor"
+    },
+    {
+      "id": "involved_in",
+      "label": "involved_in",
+      "domain": "org",
+      "range": "litigation"
+    },
+    {
+      "id": "has_segment",
+      "label": "has_segment",
+      "domain": "org",
+      "range": "segment"
+    },
+    {
+      "id": "mentions",
+      "label": "mentions",
+      "domain": "commentary",
+      "range": "org"
+    }
+  ],
+  "hierarchy": []
+}

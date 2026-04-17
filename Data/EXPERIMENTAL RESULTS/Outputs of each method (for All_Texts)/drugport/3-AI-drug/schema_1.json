@@ -1,0 +1,82 @@
+{
+  "title": "schema_1",
+  "id": "schema_1",
+  "entity type": [
+    {
+      "id": "Biomolecule",
+      "label": "Biomolecule"
+    },
+    {
+      "id": "CellLine",
+      "label": "CellLine"
+    },
+    {
+      "id": "Chemical",
+      "label": "Chemical"
+    },
+    {
+      "id": "Disease",
+      "label": "Disease"
+    },
+    {
+      "id": "Drug",
+      "label": "Drug"
+    },
+    {
+      "id": "Gene",
+      "label": "Gene"
+    },
+    {
+      "id": "PathwayProcess",
+      "label": "PathwayProcess"
+    },
+    {
+      "id": "Protein",
+      "label": "Protein"
+    },
+    {
+      "id": "Species",
+      "label": "Species"
+    }
+  ],
+  "relation": [
+    {
+      "id": "inhibits",
+      "label": "inhibits",
+      "domain": "Chemical",
+      "range": "Protein"
+    },
+    {
+      "id": "binds",
+      "label": "binds",
+      "domain": "Protein",
+      "range": "Protein"
+    },
+    {
+      "id": "regulates",
+      "label": "regulates",
+      "domain": "Chemical",
+      "range": "PathwayProcess"
+    },
+    {
+      "id": "expressedIn",
+      "label": "expressedIn",
+      "domain": "Gene",
+      "range": "CellLine"
+    }
+  ],
+  "hierarchy": [
+    {
+      "id": "IsA",
+      "label": "IsA",
+      "domain": "Drug",
+      "range": "Chemical"
+    },
+    {
+      "id": "IsA",
+      "label": "IsA",
+      "domain": "Protein",
+      "range": "Biomolecule"
+    }
+  ]
+}

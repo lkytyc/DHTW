@@ -1,0 +1,83 @@
+{
+  "title": "schema_batch_1_midscore_drugport",
+  "id": "schema_batch_1_midscore_drugport",
+  "entity type": [
+    {
+      "id": "Biomolecule",
+      "label": "Biomolecule"
+    },
+    {
+      "id": "Chemical",
+      "label": "Chemical"
+    }
+  ],
+  "relation": [
+    {
+      "id": "enhanceactivity",
+      "label": "enhanceactivity",
+      "domain": "Chemical",
+      "range": "Biomolecule"
+    },
+    {
+      "id": "inhibitexpression",
+      "label": "inhibitexpression",
+      "domain": "Chemical",
+      "range": "Biomolecule"
+    },
+    {
+      "id": "bindto",
+      "label": "bindto",
+      "domain": "Biomolecule",
+      "range": "Chemical"
+    },
+    {
+      "id": "agonist",
+      "label": "agonist",
+      "domain": "ChemicalEntity",
+      "range": "BioEntity"
+    },
+    {
+      "id": "antagonist",
+      "label": "antagonist",
+      "domain": "ChemicalEntity",
+      "range": "BioEntity"
+    },
+    {
+      "id": "directRegulator",
+      "label": "directRegulator",
+      "domain": "ChemicalEntity",
+      "range": "BioEntity"
+    },
+    {
+      "id": "indirectUpregulator",
+      "label": "indirectUpregulator",
+      "domain": "ChemicalEntity",
+      "range": "BioEntity"
+    },
+    {
+      "id": "indirectDownregulator",
+      "label": "indirectDownregulator",
+      "domain": "ChemicalEntity",
+      "range": "BioEntity"
+    },
+    {
+      "id": "inhibitor",
+      "label": "inhibitor",
+      "domain": "ChemicalEntity",
+      "range": "BioEntity"
+    },
+    {
+      "id": "activator",
+      "label": "activator",
+      "domain": "ChemicalEntity",
+      "range": "BioEntity"
+    },
+    {
+      "id": "partOf",
+      "label": "partOf",
+      "domain": "ChemicalEntity",
+      "range": "BioEntity"
+    }
+  ],
+  "hierarchy": []
+}

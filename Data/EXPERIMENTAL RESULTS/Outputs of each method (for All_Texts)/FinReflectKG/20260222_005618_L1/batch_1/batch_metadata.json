@@ -1,0 +1,14 @@
+{
+  "batch_id": 1,
+  "rounds": 6,
+  "llm_usage": {
+    "total_prompt_tokens": 862389,
+    "total_completion_tokens": 4679,
+    "total_tokens": 867068,
+    "total_time_seconds": 98.21,
+    "api_calls": 7,
+    "avg_time_per_call_seconds": 14.03
+  },
+  "user_interaction_time_seconds": 386.48,
+  "batch_total_time_seconds": 1730.52
+}

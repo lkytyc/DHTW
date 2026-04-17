@@ -1,0 +1,107 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "ChemPort Process Schema",
+    "type": "object",
+    "properties": {
+        "textualUnit": {
+            "type": "string",
+            "description": "The text unit (e.g., abstract or sentence) containing entity mentions and relations."
+        },
+        "entities": {
+            "type": "array",
+            "description": "List of entity mentions within the text unit.",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Unique identifier for the entity mention."
+                    },
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "chemical",
+                            "gene/protein"
+                        ],
+                        "description": "The type of entity, either chemical or gene/protein."
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The surface form of the entity mention in the text."
+                    },
+                    "normalizedId": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "description": "The normalized database identifier for the entity, if available."
+                    },
+                    "startPosition": {
+                        "type": "integer",
+                        "description": "The starting character position of the entity mention in the text."
+                    },
+                    "endPosition": {
+                        "type": "integer",
+                        "description": "The ending character position of the entity mention in the text."
+                    }
+                },
+                "required": [
+                    "id",
+                    "type",
+                    "name",
+                    "startPosition",
+                    "endPosition"
+                ]
+            }
+        },
+        "relations": {
+            "type": "array",
+            "description": "List of relations between chemical/drug and gene/protein entities.",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "chemicalEntityId": {
+                        "type": "string",
+                        "description": "The ID of the chemical entity involved in the relation."
+                    },
+                    "geneProteinEntityId": {
+                        "type": "string",
+                        "description": "The ID of the gene/protein entity involved in the relation."
+                    },
+                    "relationType": {
+                        "type": "string",
+                        "enum": [
+                            "antagonist",
+                            "agonist",
+                            "agonist-activator",
+                            "agonist-inhibitor",
+                            "direct-regulator",
+                            "activator",
+                            "inhibitor",
+                            "indirect-downregulator",
+                            "indirect-upregulator",
+                            "part-of",
+                            "product-of",
+                            "substrate",
+                            "substrate_product-of"
+                        ],
+                        "description": "The type of relation between the chemical and gene/protein entities."
+                    },
+                    "evidenceText": {
+                        "type": "string",
+                        "description": "The text evidence supporting the relation, if available."
+                    }
+                },
+                "required": [
+                    "chemicalEntityId",
+                    "geneProteinEntityId",
+                    "relationType"
+                ]
+            }
+        }
+    },
+    "required": [
+        "textualUnit",
+        "entities"
+    ]
+}

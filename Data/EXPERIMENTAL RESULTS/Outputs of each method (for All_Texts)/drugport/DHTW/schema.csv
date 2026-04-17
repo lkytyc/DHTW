@@ -1,0 +1,11 @@
+Entity1,Relation,Entity2
+chemical,agonist,protein
+chemical,antagonist,protein
+chemical,activator,protein
+chemical,inhibitor,protein
+chemical,direct regulator,protein
+chemical,upregulator,protein
+chemical,downregulator,protein
+chemical,part of,protein
+chemical,substrate,protein
+chemical,product of,protein

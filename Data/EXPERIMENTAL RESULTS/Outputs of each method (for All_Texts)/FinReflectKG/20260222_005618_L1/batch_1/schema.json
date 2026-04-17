@@ -1,0 +1,105 @@
+{
+  "title": "schema_batch_1",
+  "id": "schema_batch_1",
+  "entity type": [
+    {
+      "id": "BusinessSegment",
+      "label": "BusinessSegment"
+    },
+    {
+      "id": "Event",
+      "label": "Event"
+    },
+    {
+      "id": "FinancialMetric",
+      "label": "FinancialMetric"
+    },
+    {
+      "id": "MarketOrRegion",
+      "label": "MarketOrRegion"
+    },
+    {
+      "id": "Organization",
+      "label": "Organization"
+    },
+    {
+      "id": "Person",
+      "label": "Person"
+    },
+    {
+      "id": "ProductOrService",
+      "label": "ProductOrService"
+    },
+    {
+      "id": "RegulatoryRequirement",
+      "label": "RegulatoryRequirement"
+    },
+    {
+      "id": "RiskFactor",
+      "label": "RiskFactor"
+    }
+  ],
+  "relation": [
+    {
+      "id": "operatesIn",
+      "label": "operatesIn",
+      "domain": "Organization",
+      "range": "MarketOrRegion"
+    },
+    {
+      "id": "produces",
+      "label": "produces",
+      "domain": "Organization",
+      "range": "ProductOrService"
+    },
+    {
+      "id": "hasSegment",
+      "label": "hasSegment",
+      "domain": "Organization",
+      "range": "BusinessSegment"
+    },
+    {
+      "id": "competesWith",
+      "label": "competesWith",
+      "domain": "Organization",
+      "range": "Organization"
+    },
+    {
+      "id": "hasRiskFactor",
+      "label": "hasRiskFactor",
+      "domain": "Organization",
+      "range": "RiskFactor"
+    },
+    {
+      "id": "reportsMetric",
+      "label": "reportsMetric",
+      "domain": "Organization",
+      "range": "FinancialMetric"
+    },
+    {
+      "id": "subjectTo",
+      "label": "subjectTo",
+      "domain": "Organization",
+      "range": "RegulatoryRequirement"
+    },
+    {
+      "id": "hasEvent",
+      "label": "hasEvent",
+      "domain": "Organization",
+      "range": "Event"
+    },
+    {
+      "id": "partnersWith",
+      "label": "partnersWith",
+      "domain": "Organization",
+      "range": "Organization"
+    },
+    {
+      "id": "suppliesTo",
+      "label": "suppliesTo",
+      "domain": "Organization",
+      "range": "Organization"
+    }
+  ],
+  "hierarchy": []
+}

@@ -1,0 +1,13 @@
+﻿Entity Type1,Relation Type,Entity Type2
+Chemical,Antagonist,Gene or Protein
+Chemical,Agonist,Gene or Protein
+Chemical,Agonist and Activator,Gene or Protein
+Chemical,Agonist and Inhibitor,Gene or Protein
+Chemical,Direct Regulator,Gene or Protein
+Chemical,Activator,Gene or Protein
+Chemical,Inhibitor,Gene or Protein
+Chemical,Indirect Downregulator,Gene or Protein
+Chemical,Indirect Upregulator,Gene or Protein
+Chemical,Component Of,Gene or Protein
+Chemical,Product,Gene or Protein
+Chemical,Substrate,Gene or Protein

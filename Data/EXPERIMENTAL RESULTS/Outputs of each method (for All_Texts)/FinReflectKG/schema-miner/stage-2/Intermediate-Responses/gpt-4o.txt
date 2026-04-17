@@ -1,0 +1,155 @@
+Based on the research paper and expert feedback, the following refinements have been made to the JSON schema for the Fer process:
+
+1. **Entity and Relation Canonicalization**: Ensured that `entityType` and `relationLabel` use a consistent set of canonical labels as suggested by the expert feedback. This includes avoiding synonym proliferation and using a small, stable set of labels.
+
+2. **Optional Facts and Evidence**: Confirmed that `facts` can be an empty array if no clear relation is stated in the chunk. Also, `evidence` is optional and should not be fabricated.
+
+3. **Mapping Fields**: Retained `mappedType` and `mappedRelation` as optional fields for alignment purposes, without inventing new labels.
+
+4. **Schema Structure**: Maintained the structure of the schema, ensuring it is stable and reusable, without unnecessary expansion.
+
+Here is the refined JSON schema:
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Fer Process Schema",
+  "type": "object",
+  "properties": {
+    "extractionUnit": {
+      "type": "object",
+      "description": "Represents a single chunk of filing text from which facts are extracted.",
+      "properties": {
+        "chunkText": {
+          "type": "string",
+          "description": "The text of the chunk from the corporate filing."
+        },
+        "facts": {
+          "type": "array",
+          "description": "List of extracted facts represented as triples. May be empty.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "subjectEntity": {
+                "type": "object",
+                "description": "The subject entity in the triple.",
+                "properties": {
+                  "surfaceName": {
+                    "type": "string"
+                  },
+                  "entityType": {
+                    "type": "string",
+                    "description": "Canonical entity type label. Use a stable, canonical set (avoid synonyms)."
+                  },
+                  "mappedType": {
+                    "type": "string",
+                    "description": "Optional field to map entityType to a benchmark inventory."
+                  }
+                },
+                "required": ["surfaceName", "entityType"]
+              },
+              "relation": {
+                "type": "object",
+                "description": "The relation connecting the subject and object entities.",
+                "properties": {
+                  "relationLabel": {
+                    "type": "string",
+                    "description": "Canonical relation label. Use a stable, canonical set."
+                  },
+                  "mappedRelation": {
+                    "type": "string",
+                    "description": "Optional field to map relationLabel to a benchmark inventory."
+                  }
+                },
+                "required": ["relationLabel"]
+              },
+              "objectEntity": {
+                "type": "object",
+                "description": "The object entity in the triple.",
+                "properties": {
+                  "surfaceName": {
+                    "type": "string"
+                  },
+                  "entityType": {
+                    "type": "string",
+                    "description": "Canonical entity type label. Use a stable, canonical set (avoid synonyms)."
+                  },
+                  "mappedType": {
+                    "type": "string",
+                    "description": "Optional field to map entityType to a benchmark inventory."
+                  }
+                },
+                "required": ["surfaceName", "entityType"]
+              },
+              "evidence": {
+                "type": "object",
+                "description": "Evidence grounding for the extracted triple.",
+                "properties": {
+                  "evidencePhrase": {
+                    "type": "string"
+                  },
+                  "characterSpans": {
+                    "type": "array",
+                    "description": "Character-offset spans within chunkText.",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "start": {
+                          "type": "integer"
+                        },
+                        "end": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": ["start", "end"]
+                    }
+                  }
+                }
+              },
+              "temporalInformation": {
+                "type": "object",
+                "description": "Temporal information related to the triple.",
+                "properties": {
+                  "startDate": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "endDate": {
+                    "type": "string",
+                    "format": "date"
+                  }
+                }
+              }
+            },
+            "required": ["subjectEntity", "relation", "objectEntity"]
+          },
+          "default": []
+        }
+      },
+      "required": ["chunkText"]
+    },
+    "documentMetadata": {
+      "type": "object",
+      "description": "Metadata related to the corporate filing document.",
+      "properties": {
+        "companyIdentifier": {
+          "type": "string"
+        },
+        "filingYear": {
+          "type": "integer"
+        },
+        "filingPeriod": {
+          "type": "string"
+        },
+        "sectionContext": {
+          "type": "string"
+        }
+      },
+      "required": ["companyIdentifier", "filingYear"]
+    }
+  },
+  "required": ["extractionUnit", "documentMetadata"]
+}
+```
+
+This refined schema ensures that the Fer process is accurately captured with a focus on canonical labels and optional fields where appropriate, following the expert feedback and insights from the research paper.

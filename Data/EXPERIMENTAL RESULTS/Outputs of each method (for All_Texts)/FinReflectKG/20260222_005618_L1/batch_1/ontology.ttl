@@ -1,0 +1,78 @@
+@prefix ex: <http://example.org/financial-disclosure-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/financial-disclosure-schema> rdf:type owl:Ontology .
+
+# Classes
+ex:Organization rdf:type owl:Class .
+ex:Person rdf:type owl:Class .
+ex:BusinessSegment rdf:type owl:Class .
+ex:ProductOrService rdf:type owl:Class .
+ex:MarketOrRegion rdf:type owl:Class .
+ex:RiskFactor rdf:type owl:Class .
+ex:FinancialMetric rdf:type owl:Class .
+ex:Event rdf:type owl:Class .
+ex:RegulatoryRequirement rdf:type owl:Class .
+
+# Object Properties
+ex:operatesIn rdf:type owl:ObjectProperty ;
+    rdfs:domain ex:Organization ;
+    rdfs:range ex:MarketOrRegion .
+
+ex:produces rdf:type owl:ObjectProperty ;
+    rdfs:domain ex:Organization ;
+    rdfs:range ex:ProductOrService .
+
+ex:hasSegment rdf:type owl:ObjectProperty ;
+    rdfs:domain ex:Organization ;
+    rdfs:range ex:BusinessSegment .
+
+ex:competesWith rdf:type owl:ObjectProperty ;
+    rdfs:domain ex:Organization ;
+    rdfs:range ex:Organization .
+
+ex:hasRiskFactor rdf:type owl:ObjectProperty ;
+    rdfs:domain ex:Organization ;
+    rdfs:range ex:RiskFactor .
+
+ex:reportsMetric rdf:type owl:ObjectProperty ;
+    rdfs:domain ex:Organization ;
+    rdfs:range ex:FinancialMetric .
+
+ex:subjectTo rdf:type owl:ObjectProperty ;
+    rdfs:domain ex:Organization ;
+    rdfs:range ex:RegulatoryRequirement .
+
+ex:hasEvent rdf:type owl:ObjectProperty ;
+    rdfs:domain ex:Organization ;
+    rdfs:range ex:Event .
+
+ex:partnersWith rdf:type owl:ObjectProperty ;
+    rdfs:domain ex:Organization ;
+    rdfs:range ex:Organization .
+
+ex:suppliesTo rdf:type owl:ObjectProperty ;
+    rdfs:domain ex:Organization ;
+    rdfs:range ex:Organization .
+
+# Data Properties
+ex:hasProvenance rdf:type owl:DatatypeProperty ;
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:string .
+
+# CQ Coverage
+# CQ1: Entity types are covered by classes such as Organization, Person, BusinessSegment, etc.
+# CQ2: Type-to-type relations are covered by properties like operatesIn, produces, hasSegment, etc.
+# CQ3: Directional relations are defined with domain and range, e.g., operatesIn (Organization -> MarketOrRegion).
+# CQ4: Internal vs. external structures are represented by classes like BusinessSegment (internal) and MarketOrRegion (external).
+# CQ5: Relations connecting risks, events, and outcomes are represented by hasRiskFactor and hasEvent.
+# CQ6: Table-friendly modeling is supported by properties that can be linked to evidence via hasProvenance.
+# CQ7: Hierarchy is supported by class definitions, e.g., RiskFactor as a kind of DisclosureItem.
+# CQ8: Ambiguous relations are omitted unless explicitly supported by the dataset.
+
+# SWRL-like Rules (as comments)
+# Rule: If an Organization operatesIn a MarketOrRegion, it may produce a ProductOrService in that region.
+# Rule: If an Organization hasSegment, it may reportMetric related to that segment.

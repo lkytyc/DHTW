@@ -1,0 +1,174 @@
+{
+  "title": "schema_1",
+  "id": "schema_1",
+  "entity type": [
+    {
+      "id": "BusinessSegment",
+      "label": "BusinessSegment"
+    },
+    {
+      "id": "DisclosureItem",
+      "label": "DisclosureItem"
+    },
+    {
+      "id": "Entity",
+      "label": "Entity"
+    },
+    {
+      "id": "Event",
+      "label": "Event"
+    },
+    {
+      "id": "FinancialMetric",
+      "label": "FinancialMetric"
+    },
+    {
+      "id": "MarketOrRegion",
+      "label": "MarketOrRegion"
+    },
+    {
+      "id": "Organization",
+      "label": "Organization"
+    },
+    {
+      "id": "Person",
+      "label": "Person"
+    },
+    {
+      "id": "ProductOrService",
+      "label": "ProductOrService"
+    },
+    {
+      "id": "RegulatoryRequirement",
+      "label": "RegulatoryRequirement"
+    },
+    {
+      "id": "RiskFactor",
+      "label": "RiskFactor"
+    }
+  ],
+  "relation": [
+    {
+      "id": "operatesIn",
+      "label": "operatesIn",
+      "domain": "Organization",
+      "range": "MarketOrRegion"
+    },
+    {
+      "id": "produces",
+      "label": "produces",
+      "domain": "Organization",
+      "range": "ProductOrService"
+    },
+    {
+      "id": "suppliesTo",
+      "label": "suppliesTo",
+      "domain": "Organization",
+      "range": "Organization"
+    },
+    {
+      "id": "partnersWith",
+      "label": "partnersWith",
+      "domain": "Organization",
+      "range": "Organization"
+    },
+    {
+      "id": "competesWith",
+      "label": "competesWith",
+      "domain": "Organization",
+      "range": "Organization"
+    },
+    {
+      "id": "hasSegment",
+      "label": "hasSegment",
+      "domain": "Organization",
+      "range": "BusinessSegment"
+    },
+    {
+      "id": "hasRiskFactor",
+      "label": "hasRiskFactor",
+      "domain": "Organization",
+      "range": "RiskFactor"
+    },
+    {
+      "id": "hasMetric",
+      "label": "hasMetric",
+      "domain": "Organization",
+      "range": "FinancialMetric"
+    },
+    {
+      "id": "hasEvent",
+      "label": "hasEvent",
+      "domain": "Organization",
+      "range": "Event"
+    },
+    {
+      "id": "hasRegulatoryRequirement",
+      "label": "hasRegulatoryRequirement",
+      "domain": "Organization",
+      "range": "RegulatoryRequirement"
+    }
+  ],
+  "hierarchy": [
+    {
+      "id": "IsA",
+      "label": "IsA",
+      "domain": "Organization",
+      "range": "Entity"
+    },
+    {
+      "id": "IsA",
+      "label": "IsA",
+      "domain": "Person",
+      "range": "Entity"
+    },
+    {
+      "id": "IsA",
+      "label": "IsA",
+      "domain": "BusinessSegment",
+      "range": "Entity"
+    },
+    {
+      "id": "IsA",
+      "label": "IsA",
+      "domain": "ProductOrService",
+      "range": "Entity"
+    },
+    {
+      "id": "IsA",
+      "label": "IsA",
+      "domain": "MarketOrRegion",
+      "range": "Entity"
+    },
+    {
+      "id": "IsA",
+      "label": "IsA",
+      "domain": "RiskFactor",
+      "range": "Entity"
+    },
+    {
+      "id": "IsA",
+      "label": "IsA",
+      "domain": "FinancialMetric",
+      "range": "Entity"
+    },
+    {
+      "id": "IsA",
+      "label": "IsA",
+      "domain": "Event",
+      "range": "Entity"
+    },
+    {
+      "id": "IsA",
+      "label": "IsA",
+      "domain": "RegulatoryRequirement",
+      "range": "Entity"
+    },
+    {
+      "id": "IsA",
+      "label": "IsA",
+      "domain": "RiskFactor",
+      "range": "DisclosureItem"
+    }
+  ]
+}
