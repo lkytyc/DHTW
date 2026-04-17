@@ -1,0 +1,18 @@
+================================================================================
+Overall Statistics Report
+Generated At: 2026-02-03 22:16:37
+================================================================================
+Token Statistics:
+  - Total Prompt Tokens: 5,563,184
+  - Total Completion Tokens: 529,135
+  - Total Tokens: 6,092,319
+
+Time Statistics:
+  - Total LLM Calls: 4416
+  - Average Response Time: 2.22 s
+  - Fastest Response Time: 0.73 s
+  - Slowest Response Time: 36.52 s
+  - Total LLM Response Time: 9821.79 s (163.70 min)
+  - Total Human Feedback Time: 537.74 s (8.96 min)
+  - Total Time (LLM + Human Feedback): 10359.53 s (172.66 min)
+================================================================================
