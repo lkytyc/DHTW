@@ -14,7 +14,7 @@ ActionInsight{
     Instruction Generate suggestions{
         InputVariable{
             suggestions: ${suggestions}$ // Previous extraction strategies for reference.
-            entity_changes: ${entity_changes}$ // Dictionary of added, removed, or modified API entities, with their types.
+            entity_changes: ${entity_changes}$ // Dictionary of added, removed, or modified entities, with their types.
             relation_changes: ${relation_changes}$ // Dictionary of added, removed, or modified relationships, with their types.
         }
     Commands{
@@ -43,7 +43,7 @@ ActionInsight{
 
     Step 5: Generate Design and Implementation Level Suggestions:
     - Treat the **new_suggestions** as both **Design Level Suggestions** and **Implementation Level Suggestions**, ensuring they align with the extracted entity and relationship types.
-    - Ensure that the extracted strategies are actionable at both the design and implementation levels, allowing users to optimize both their system architecture and the implementation of the API extraction logic.
+    - Ensure that the extracted strategies are actionable at both the design and implementation levels, allowing users to optimize both their system architecture and the implementation of the extraction logic.
     - Format the output strictly as follows:
         Design Level Suggestions: Design Level Suggestion;
         Implementation Level Suggestions: Implementation Level Suggestion1;
